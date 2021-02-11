@@ -173,5 +173,38 @@ echo "Žaidimą laimėjo ​$zaidimoLaimetojas.";
 
 <?php
 
+echo 'Rombas 21 eilutės aukščio';
+echo '<br><br>';
+$length = 11;
+    for ($j = 0; $j < $length; $j++) {
+        $star = "";
+        $i = -1;
+        while ($i < $j) {
+        $randomR = rand(0, 255);
+        $randomG = rand(0, 255);
+        $randomB = rand(0, 255);        
+        $star .= "<span style=\"color: rgb($randomR, $randomG, $randomB)\">*</span>";
+        $i++;
+        }
+        echo str_repeat("<span style='display: inline-block; height: 7px; width: 4px;'>&nbsp</span>", $length - $j);
+        echo "<span style='display: inline-block; height: 7px; width: 4px;'>$star</span>";
+        echo '<br>';
+    }
+    for ($j = $length-1; $j > 0; $j--) {
+        $star = "";
+        $i = 0;
+        while ($i < $j) {
+        $randomR = rand(0, 255);
+        $randomG = rand(0, 255);
+        $randomB = rand(0, 255);        
+        $star .= "<span style=\"color: rgb($randomR, $randomG, $randomB)\">*</span>";
+        $i++;
+        }
+        echo str_repeat("<span style='display: inline-block; height: 7px; width: 4px;'>&nbsp</span>", $length +1 - $j);
+        echo "<span style='display: inline-block; height: 7px; width: 4px;'>$star</span>";
+        echo '<br>';
+    }
+?>
+
 
 
