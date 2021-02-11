@@ -200,7 +200,7 @@ $length = 11;
         $star .= "<span style=\"color: rgb($randomR, $randomG, $randomB)\">*</span>";
         $i++;
         }
-        echo str_repeat("<span style='display: inline-block; height: 7px; width: 4px;'>&nbsp</span>", $length +1 - $j);
+        echo str_repeat("<span style='display: inline-block; height: 7px; width: 4px;'>&nbsp</span>", $length + 1 - $j);
         echo "<span style='display: inline-block; height: 7px; width: 4px;'>$star</span>";
         echo '<br>';
     }
