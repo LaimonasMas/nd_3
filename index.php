@@ -298,7 +298,7 @@ echo '<br>';
 echo "Iš viso smūgiuota kartų: $totalCount10B2.";
 echo '<br>';
 echo '<br>';
-($totalCount10B > $totalCount10B2) ? print 'GREČIAU SUKALSIT SMŪGIUODAMI STIPRIAI' : print 'GREČIAU SUKALSIT SMŪGIUODAMI SILPNAI';
+($totalCount10B > $totalCount10B2) ? print 'GREIČIAU SUKALSIT SMŪGIUODAMI STIPRIAI' : print 'GREIČIAU SUKALSIT SMŪGIUODAMI SILPNAI';
 ?>
 
 <h2>ND nr.11</h2>
