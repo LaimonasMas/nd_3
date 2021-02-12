@@ -232,10 +232,10 @@ echo '<br><br>';
 <h2>ND nr.10</h2>
 
 <?php
-
+echo 'a) Įkalkite” 5 vinis mažais smūgiais. Vienas smūgis vinį įkala 5-20 mm. Suskaičiuokite kiek reikia smūgių.';
+echo '<br>';
+echo '<br>';
 $count10A = 0;
-
-
 $totalCount10B = 0;
 while ($count10A < 5) {
     $viniesSkaicius = $count10A + 1;
@@ -259,3 +259,48 @@ while ($count10A < 5) {
 echo "Sukalta vinių: $count10A.";
 echo '<br>';
 echo "Iš viso smūgiuota kartų: $totalCount10B.";
+echo '<br><br>';
+echo '-------------------------------------------';
+echo '<br><br>';
+echo 'b) Įkalkite 5 vinis dideliais smūgiais. Vienas smūgis vinį įkala 20-30 mm, bet yra 50% tikimybė (pasinaudokite rand() funkcija tikimybei sumodeliuoti), kad smūgis nepataikys į vinį. Suskaičiuokite kiek reikia smūgių.';
+echo '<br>';
+echo '<br>';
+$count10A2 = 0;
+$totalCount10B2 = 0;
+while ($count10A2 < 5) {
+    $viniesSkaicius2 = $count10A2 + 1;
+    echo "Pradedam kalti $viniesSkaicius2-ą vinį: ";
+    echo '<br>';
+    $count10B2 = 0;
+    $count10C2 = 0;
+    while ($count10B2 <= 85) {
+        $chance = rand(0, 1);
+        echo "Iskrito: $chance";
+        echo '<br>';        
+        if ($chance === 0) {
+            $randumNum2 = rand(20, 30);
+            echo "-BUM- sulindo į lentą $randumNum2 mm.";
+            echo '<br>';
+            $count10B2 += $randumNum2;
+            $count10C2++;
+        } else {
+            $count10C2++;
+        }
+    }
+    $totalCount10B2 += $count10C2;
+    $count10A2++;
+    echo "$viniesSkaicius2-ą vinį kalė $count10C2 kartus ir sukalė $count10B2 mm.";
+    echo '<br>';
+    echo '<br>';
+}
+echo "Sukalta vinių: $count10A2.";
+echo '<br>';
+echo "Iš viso smūgiuota kartų: $totalCount10B2.";
+echo '<br>';
+echo '<br>';
+($totalCount10B > $totalCount10B2) ? print 'GREČIAU SUKALSIT SMŪGIUODAMI STIPRIAI' : print 'GREČIAU SUKALSIT SMŪGIUODAMI SILPNAI';
+?>
+
+<h2>ND nr.11</h2>
+
+<?php
