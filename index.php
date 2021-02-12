@@ -276,7 +276,7 @@ while ($count10A2 < 5) {
     while ($count10B2 <= 85) {
         $chance = rand(0, 1);
         echo "Iskrito: $chance";
-        echo '<br>';        
+        echo '<br>';
         if ($chance === 0) {
             $randumNum2 = rand(20, 30);
             echo "-BUM- sulindo į lentą $randumNum2 mm.";
@@ -304,3 +304,29 @@ echo '<br>';
 <h2>ND nr.11</h2>
 
 <?php
+
+$string11 = "";
+$count11 = 1;
+while ($count11 <= 50) {
+    $randNumb = rand(1, 200);
+    $pos = strpos($string11, $randNumb);
+    if (!$pos) {
+        $string11 .= $randNumb . " ";
+        $count11++;
+    } else {
+        echo "Jau yra $randNumb stringe.";
+        echo '<br>';
+    }
+}
+echo $string11;
+$exploded11 = explode(" ", $string11);
+echo '<br>';
+foreach ($exploded11 as $value) {
+    echo $value . " ";
+}
+echo '<pre>';
+print_r($exploded11);
+
+
+
+
