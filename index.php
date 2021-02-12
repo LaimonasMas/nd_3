@@ -150,19 +150,19 @@ do {
 $petroCount = 0;
 $kazioCount = 0;
 do {
-$petroTaskai = rand(10, 20);
-$kazioTaskai = rand(5, 25);
-if ($petroTaskai > $kazioTaskai) {
-    $laimetojas = 'Petras';
-} else if ($petroTaskai < $kazioTaskai) {
-    $laimetojas = 'Kazys';
-} else {
-    $laimetojas = 'Kazys ir Petras surinko po lygiai taškų';
-}
-echo "Petras taškai: $petroTaskai, Kazio taškai: $kazioTaskai. Partiją laimėjo: ​$laimetojas.";
-$petroCount += $petroTaskai;
-$kazioCount += $kazioTaskai;
-echo '<br>';
+    $petroTaskai = rand(10, 20);
+    $kazioTaskai = rand(5, 25);
+    if ($petroTaskai > $kazioTaskai) {
+        $laimetojas = 'Petras';
+    } else if ($petroTaskai < $kazioTaskai) {
+        $laimetojas = 'Kazys';
+    } else {
+        $laimetojas = 'Kazys ir Petras surinko po lygiai taškų';
+    }
+    echo "Petras taškai: $petroTaskai, Kazio taškai: $kazioTaskai. Partiją laimėjo: ​$laimetojas.";
+    $petroCount += $petroTaskai;
+    $kazioCount += $kazioTaskai;
+    echo '<br>';
 } while ($petroCount < 222 || $kazioCount < 222);
 $zaidimoLaimetojas = ($petroCount > $kazioCount) ? "Petras surinkęs $petroCount" : "Kazys surinkęs $kazioCount";
 echo '<br>';
@@ -176,35 +176,86 @@ echo "Žaidimą laimėjo ​$zaidimoLaimetojas.";
 echo 'Rombas 21 eilutės aukščio';
 echo '<br><br>';
 $length = 11;
-    for ($j = 0; $j < $length; $j++) {
-        $star = "";
-        $i = -1;
-        while ($i < $j) {
+for ($j = 0; $j < $length; $j++) {
+    $star = "";
+    $i = -1;
+    while ($i < $j) {
         $randomR = rand(0, 255);
         $randomG = rand(0, 255);
-        $randomB = rand(0, 255);        
+        $randomB = rand(0, 255);
         $star .= "<span style=\"color: rgb($randomR, $randomG, $randomB)\">*</span>";
         $i++;
-        }
-        echo str_repeat("<span style='display: inline-block; height: 7px; width: 4px;'>&nbsp</span>", $length - $j);
-        echo "<span style='display: inline-block; height: 7px; width: 4px;'>$star</span>";
-        echo '<br>';
     }
-    for ($j = $length-1; $j > 0; $j--) {
-        $star = "";
-        $i = 0;
-        while ($i < $j) {
+    echo str_repeat("<span style='display: inline-block; height: 7px; width: 4px;'>&nbsp</span>", $length - $j);
+    echo "<span style='display: inline-block; height: 7px; width: 4px;'>$star</span>";
+    echo '<br>';
+}
+for ($j = $length - 1; $j > 0; $j--) {
+    $star = "";
+    $i = 0;
+    while ($i < $j) {
         $randomR = rand(0, 255);
         $randomG = rand(0, 255);
-        $randomB = rand(0, 255);        
+        $randomB = rand(0, 255);
         $star .= "<span style=\"color: rgb($randomR, $randomG, $randomB)\">*</span>";
         $i++;
-        }
-        echo str_repeat("<span style='display: inline-block; height: 7px; width: 4px;'>&nbsp</span>", $length + 1 - $j);
-        echo "<span style='display: inline-block; height: 7px; width: 4px;'>$star</span>";
-        echo '<br>';
     }
+    echo str_repeat("<span style='display: inline-block; height: 7px; width: 4px;'>&nbsp</span>", $length + 1 - $j);
+    echo "<span style='display: inline-block; height: 7px; width: 4px;'>$star</span>";
+    echo '<br>';
+}
 ?>
 
+<h2>ND nr.9</h2>
+
+<?php
+
+$time_start = microtime(true);
+for ($i = 0; $i < 1000000; $i++) {
+    $c1 = "10 bezdzioniu \n suvalge 20 bananu.";
+};
+$time_end = microtime(true);
+$time = $time_end - $time_start;
+echo "Šį kodą su dvigubom kabutėm 1 000 000 kartų įvykdo per $time sekundžių.";
+echo '<br>';
+$time2_start = microtime(true);
+for ($i = 0; $i < 1000000; $i++) {
+    $c2 = '10 bezdzioniu \n suvalge 20 bananu.';
+};
+$time2_end = microtime(true);
+$time2 = $time2_end - $time2_start;
+echo "Šį kodą su viengubom kabutėm 1 000 000 kartų įvykdo per $time2 sekundžių.";
+echo '<br><br>';
+($time > $time2) ? print 'Greičiau įvykdo kodą su viengubom kabutėm.' : print 'Greičiau įvykdo kodą su dvigubom kabutėm.';
+?>
+
+<h2>ND nr.10</h2>
+
+<?php
+
+$count10A = 0;
 
 
+$totalCount10B = 0;
+while ($count10A < 5) {
+    $viniesSkaicius = $count10A + 1;
+    echo "Pradedam kalti $viniesSkaicius-ą vinį: ";
+    echo '<br>';
+    $count10B = 0;
+    $count10C = 0;
+    while ($count10B <= 85) {
+        $randumNum = rand(5, 20);
+        echo "-BUM- sulindo į lentą $randumNum mm.";
+        echo '<br>';
+        $count10B += $randumNum;
+        $count10C++;
+    }
+    $totalCount10B += $count10C;
+    $count10A++;
+    echo "$viniesSkaicius-ą vinį kalė $count10C kartus ir sukalė $count10B mm.";
+    echo '<br>';
+    echo '<br>';
+}
+echo "Sukalta vinių: $count10A.";
+echo '<br>';
+echo "Iš viso smūgiuota kartų: $totalCount10B.";
