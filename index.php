@@ -298,7 +298,14 @@ echo '<br>';
 echo "Iš viso smūgiuota kartų: $totalCount10B2.";
 echo '<br>';
 echo '<br>';
-($totalCount10B > $totalCount10B2) ? print 'GREIČIAU SUKALSIT SMŪGIUODAMI STIPRIAI' : print 'GREIČIAU SUKALSIT SMŪGIUODAMI SILPNAI';
+if ($totalCount10B > $totalCount10B2) {
+    echo 'GREIČIAU SUKALSIT SMŪGIUODAMI STIPRIAI.';
+} else if ($totalCount10B < $totalCount10B2) {
+    echo 'GREIČIAU SUKALSIT SMŪGIUODAMI SILPNAI.';
+} else {
+    echo 'TIEK SMŪGIUODAMI SILPNAI, TIEK STIPRIAI SUKALSIT TOKIU PAČIU GREIČIU.';
+}
+ 
 ?>
 
 <h2>ND nr.11</h2>
@@ -314,19 +321,34 @@ while ($count11 <= 50) {
         $string11 .= $randNumb . " ";
         $count11++;
     } else {
-        echo "Jau yra $randNumb stringe.";
-        echo '<br>';
+        // echo "Jau yra $randNumb stringe.";
+        // echo '<br>';
     }
 }
-echo $string11;
+// echo '<br>';
+// echo $string11;
 $exploded11 = explode(" ", $string11);
-echo '<br>';
-foreach ($exploded11 as $value) {
-    echo $value . " ";
+// echo '<pre>';
+// print_r($exploded11);
+$pirminiai = [];
+for ($i = 1; $i < 200; $i++) {
+    $count11B = 0;
+    for ($j = 1; $j <= $i; $j++) {
+        if ($i % $j === 0) {
+            $count11B++;
+        }
+    }
+    if ($count11B === 2) {
+        array_push($pirminiai, $i);
+    }
 }
-echo '<pre>';
-print_r($exploded11);
-
-
-
-
+// print_r($pirminiai);
+$exploded11AndFilteredPrime = '';
+for ($j = 0; $j < count($pirminiai); $j++) {
+    if (in_array($pirminiai[$j], $exploded11)) {
+        $exploded11AndFilteredPrime .= $pirminiai[$j] . ' ';
+    }
+}
+// echo '</pre>';
+// echo '<br>';
+echo $exploded11AndFilteredPrime;
